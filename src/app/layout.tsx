@@ -1,31 +1,27 @@
-import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Providers from "./providers";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+// Root layout wrapper with ErrorBoundary
+// Update this in /src/app/layout.tsx
 
-const inter = Inter({ subsets: ["latin"] });
+import { ErrorBoundary } from '@/components/ui/ErrorBoundary';
+import './globals.css';
+import { Providers } from './providers';
 
-export const metadata: Metadata = {
-  title: "Esh7rni - Social Media Marketing Services",
-  description: "Professional SMM services for all your social media needs",
+export const metadata = {
+  title: 'Esh7rni - Social Media Marketing Services',
+  description: 'Get the best social media marketing services with Esh7rni',
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} min-h-screen flex flex-col bg-background text-foreground`}>
+      <body>
         <Providers>
-          <Header />
-          <main className="flex-1">
+          <ErrorBoundary>
             {children}
-          </main>
-          <Footer />
+          </ErrorBoundary>
         </Providers>
       </body>
     </html>
