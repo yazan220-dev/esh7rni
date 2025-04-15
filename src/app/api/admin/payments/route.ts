@@ -52,4 +52,5 @@ async function GET(request: NextRequest) {
 }
 
 // Apply security middleware
-export { apiSecurity(GET) as GET };
+const securedGET = apiSecurity(GET);
+export { securedGET as GET };

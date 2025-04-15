@@ -155,4 +155,8 @@ async function DELETE(
 }
 
 // Apply security middleware
-export { apiSecurity(GET) as GET, apiSecurity(PATCH) as PATCH, apiSecurity(DELETE) as DELETE };
+const securedGET = apiSecurity(GET);
+const securedPATCH = apiSecurity(PATCH);
+const securedDELETE = apiSecurity(DELETE);
+
+export { securedGET as GET, securedPATCH as PATCH, securedDELETE as DELETE };
