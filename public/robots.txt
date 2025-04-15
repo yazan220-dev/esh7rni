@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Disallow admin and dashboard routes
+Disallow: /dashboard/admin/
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://esh7rni.me/sitemap.xml
